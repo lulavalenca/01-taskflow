@@ -1,0 +1,45 @@
+
+[project]
+name = "taskflow"
+version = "0.1.0"
+description = "Sistema profissional de gerenciamento de tarefas"
+requires-python = ">=3.11,<3.12"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "black>=25.0",
+    "isort>=6.0",
+    "ruff>=0.14",
+    "pytest>=8.0",
+    "pytest-django>=4.11",
+    "coverage>=7.0",
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["config", "apps"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+exclude = [".venv", "migrations"]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "B",
+    "UP",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
